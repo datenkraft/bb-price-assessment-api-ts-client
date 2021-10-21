@@ -16,8 +16,8 @@ describe.skip('Client Test (staging)', () => {
         )
             .then(() => {
                 PriceAssessmentApiClient.Generated.PriceService.getPriceCollection('65ce660d-9ff0-4c13-925f-1137c76f13b0', 'test_sku_a')
-                    .then((getPriceCollectionResponse) => {
-                        expect(getPriceCollectionResponse).toEqual({
+                    .then((priceCollection) => {
+                        expect(priceCollection).toEqual({
                             skuCode: 'test_sku_a',
                             customerId: '65ce660d-9ff0-4c13-925f-1137c76f13b0',
                             price: {
