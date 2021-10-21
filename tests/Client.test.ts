@@ -1,7 +1,7 @@
 import {ConfigOptions} from '@datenkraft/bb-base-api-ts-client';
 import {PriceAssessmentApiClient} from '../dist';
 
-describe.skip('Client Test (local)', () => {
+describe.skip('Client Test (staging)', () => {
     test('Initialize and use the generated Client', (done) => {
         const configOptions: ConfigOptions = {
             clientId: process.env.DEV_CLIENT_ID_STAGING ?? '',
