@@ -1,4 +1,4 @@
-# Backbone - SKU Catalog API TS Client
+# Backbone - Price Assessment API TS Client
 
 ## Introduction
 
@@ -13,12 +13,12 @@ The Price Assessment API TS Client enables you to work with the Price Assessment
 You can use [npm](https://www.npmjs.com/) to install the package.
 
 ~~~~ bash
-npm install @datenkraft/bb-sku-catalog-api-ts-client
+npm install @datenkraft/bb-price-assessment-api-ts-client
 ~~~~
 
 ## Using the package
 
-The package can be used to communicate with the SKU Catalog API.
+The package can be used to communicate with the Price Assessment API.
 The Client includes functionalities for every endpoint defined in the openapi.json.
 The Client is auto-generated with [ferdikoomen/openapi-typescript-codegen](https://github.com/ferdikoomen/openapi-typescript-codegen) using an openapi.json file.
 
@@ -26,7 +26,7 @@ The Client is auto-generated with [ferdikoomen/openapi-typescript-codegen](https
 
 ~~~~ typescript
 import { ConfigOptions } from '@datenkraft/bb-base-api-ts-client';
-import { SkuCatalogApiClient } from '@datenkraft/bb-sku-catalog-api-ts-client';
+import { PriceAssessmentApiClient } from '@datenkraft/bb-price-assessment-api-ts-client';
 
 const configOptions: ConfigOptions = {
   clientId: 'clientId',
@@ -37,15 +37,16 @@ const configOptions: ConfigOptions = {
   useExternalIdToken: true,
 };
 
-SkuCatalogApiClient.init(configOptions).then(() => {
+PriceAssessmentApiClient.init(configOptions).then(() => {
   // Client is initialized
 });
 ~~~~
 
-### Example Endpoint: Get SKU
+### Example Endpoint: Get Price Collection
 ~~~~ typescript
-SkuCatalogApiClient.Generated.SkuService.getSku('skuCode')
-  .then((sku) => {
+PriceAssessmentApiClient.Generated.PriceService
+  .getPriceCollection('price-profile-id', 'sku_code')
+  .then((priceCollection) => {
     // Request succeeded
   })
   .catch((error) => {
