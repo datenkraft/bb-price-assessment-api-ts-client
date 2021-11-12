@@ -12,6 +12,7 @@ export class PriceService {
      * Get Price
      * @param filterCustomerId Customer Id filter
      * @param filterSkuCode SKU Code filter
+     * @param filterValidFrom Valid From Date filter
      * @returns getPriceCollectionResponse OK
      * @returns errorResponse Unexpected error
      * @throws ApiError
@@ -19,6 +20,7 @@ export class PriceService {
     public static async getPriceCollection(
         filterCustomerId: string,
         filterSkuCode: string,
+        filterValidFrom?: string,
     ): Promise<getPriceCollectionResponse | errorResponse> {
         const result = await __request({
             method: 'GET',
@@ -26,6 +28,7 @@ export class PriceService {
             query: {
                 'filter[customerId]': filterCustomerId,
                 'filter[skuCode]': filterSkuCode,
+                'filter[validFrom]': filterValidFrom,
             },
             errors: {
                 400: `Bad Request`,

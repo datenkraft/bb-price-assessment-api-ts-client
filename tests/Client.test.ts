@@ -24,7 +24,8 @@ describe.skip('Client Test (staging)', () => {
                                 minorMicro: 110000000,
                                 currency: 'EUR'
                             },
-                            percent: null
+                            percent: null,
+                            validFrom: '2021-08-01T00:00:00+00:00'
                         });
                         done();
                     })
