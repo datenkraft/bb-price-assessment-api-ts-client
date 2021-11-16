@@ -15,12 +15,12 @@
       "description": "Staging server"
     },
     {
-      "url": "https:\/\/localhost:30290",
+      "url": "https://localhost:30290",
       "description": "Development server"
     }
   ],
   "paths": {
-    "\/auth\/role": {
+    "/auth/role": {
       "get": {
         "tags": [
           "auth-role"
@@ -32,9 +32,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/authRoleCollection"
+                  "$ref": "#/components/schemas/authRoleCollection"
                 }
               }
             }
@@ -42,9 +42,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -52,9 +52,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -62,9 +62,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -72,9 +72,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -82,7 +82,7 @@
         }
       }
     },
-    "\/auth\/role-identity": {
+    "/auth/role-identity": {
       "get": {
         "tags": [
           "auth-role-identity"
@@ -94,9 +94,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+                  "$ref": "#/components/schemas/authRoleIdentityCollection"
                 }
               }
             }
@@ -104,9 +104,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -114,9 +114,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -124,9 +124,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -134,9 +134,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -153,9 +153,9 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application\/json": {
+            "application/json": {
               "schema": {
-                "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+                "$ref": "#/components/schemas/authRoleIdentityCollection"
               }
             }
           }
@@ -164,9 +164,9 @@
           "201": {
             "description": "Created",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+                  "$ref": "#/components/schemas/authRoleIdentityCollection"
                 }
               }
             }
@@ -174,9 +174,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -184,9 +184,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -194,9 +194,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -204,9 +204,9 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -214,9 +214,9 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -224,9 +224,9 @@
           "422": {
             "description": "Unprocessable Entity",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -234,9 +234,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -244,9 +244,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -263,9 +263,9 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application\/json": {
+            "application/json": {
               "schema": {
-                "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+                "$ref": "#/components/schemas/authRoleIdentityCollection"
               }
             }
           }
@@ -277,9 +277,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -287,9 +287,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -297,9 +297,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -307,9 +307,9 @@
           "404": {
             "description": "Not Found",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -317,9 +317,9 @@
           "422": {
             "description": "Unprocessable Entity",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -327,9 +327,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -337,9 +337,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -347,7 +347,7 @@
         }
       }
     },
-    "\/customer-pricing-profile": {
+    "/customer-pricing-profile": {
       "post": {
         "tags": [
           "customer-pricing-profile"
@@ -358,9 +358,9 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application\/json": {
+            "application/json": {
               "schema": {
-                "$ref": "#\/components\/schemas\/newCustomerPricingProfile"
+                "$ref": "#/components/schemas/newCustomerPricingProfile"
               }
             }
           }
@@ -369,9 +369,9 @@
           "201": {
             "description": "Created",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/customerPricingProfile"
+                  "$ref": "#/components/schemas/customerPricingProfile"
                 }
               }
             }
@@ -379,9 +379,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -389,9 +389,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -399,9 +399,9 @@
           "422": {
             "description": "Unprocessable Entity",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -409,9 +409,9 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -419,9 +419,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -429,9 +429,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -439,7 +439,7 @@
         }
       }
     },
-    "\/customer-pricing-profile\/{customerPricingProfileId}": {
+    "/customer-pricing-profile/{customerPricingProfileId}": {
       "get": {
         "tags": [
           "customer-pricing-profile"
@@ -462,9 +462,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/customerPricingProfile"
+                  "$ref": "#/components/schemas/customerPricingProfile"
                 }
               }
             }
@@ -472,9 +472,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -482,9 +482,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -492,9 +492,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -502,9 +502,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -512,9 +512,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -542,20 +542,30 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application\/json": {
+            "application/json": {
               "schema": {
-                "$ref": "#\/components\/schemas\/newCustomerPricingProfile"
+                "$ref": "#/components/schemas/newCustomerPricingProfile"
               }
             }
           }
         },
         "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/customerPricingProfile"
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/customerPricingProfile"
+                  "$ref": "#/components/schemas/customerPricingProfile"
                 }
               }
             }
@@ -563,9 +573,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -573,9 +583,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -583,9 +593,9 @@
           "422": {
             "description": "Unprocessable Entity",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -593,9 +603,9 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -603,9 +613,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -613,9 +623,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -647,9 +657,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -657,9 +667,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -667,9 +677,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -677,9 +687,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -687,9 +697,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -697,7 +707,7 @@
         }
       }
     },
-    "\/docs": {
+    "/docs": {
       "get": {
         "tags": [
           "docs"
@@ -712,9 +722,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -722,9 +732,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -732,7 +742,7 @@
         }
       }
     },
-    "\/docs\/openapi.{format}": {
+    "/docs/openapi.{format}": {
       "get": {
         "tags": [
           "docs"
@@ -762,9 +772,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -772,9 +782,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -782,7 +792,7 @@
         }
       }
     },
-    "\/organization-pricing-profile": {
+    "/organization-pricing-profile": {
       "post": {
         "tags": [
           "organization-pricing-profile"
@@ -793,9 +803,9 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application\/json": {
+            "application/json": {
               "schema": {
-                "$ref": "#\/components\/schemas\/newOrganizationPricingProfile"
+                "$ref": "#/components/schemas/newOrganizationPricingProfile"
               }
             }
           }
@@ -804,9 +814,9 @@
           "201": {
             "description": "Created",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/organizationPricingProfile"
+                  "$ref": "#/components/schemas/organizationPricingProfile"
                 }
               }
             }
@@ -814,9 +824,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -824,9 +834,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -834,9 +844,9 @@
           "422": {
             "description": "Unprocessable Entity",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -844,9 +854,9 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -854,9 +864,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -864,9 +874,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -874,7 +884,7 @@
         }
       }
     },
-    "\/organization-pricing-profile\/{organizationPricingProfileId}": {
+    "/organization-pricing-profile/{organizationPricingProfileId}": {
       "get": {
         "tags": [
           "organization-pricing-profile"
@@ -897,9 +907,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/organizationPricingProfile"
+                  "$ref": "#/components/schemas/organizationPricingProfile"
                 }
               }
             }
@@ -907,9 +917,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -917,9 +927,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -927,9 +937,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -937,9 +947,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -947,9 +957,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -977,20 +987,30 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application\/json": {
+            "application/json": {
               "schema": {
-                "$ref": "#\/components\/schemas\/newOrganizationPricingProfile"
+                "$ref": "#/components/schemas/newOrganizationPricingProfile"
               }
             }
           }
         },
         "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/organizationPricingProfile"
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/organizationPricingProfile"
+                  "$ref": "#/components/schemas/organizationPricingProfile"
                 }
               }
             }
@@ -998,9 +1018,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1008,9 +1028,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1018,9 +1038,9 @@
           "422": {
             "description": "Unprocessable Entity",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1028,9 +1048,9 @@
           "409": {
             "description": "Conflict",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1038,9 +1058,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1048,9 +1068,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1082,9 +1102,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1092,9 +1112,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1102,9 +1122,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1112,9 +1132,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1122,9 +1142,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1132,7 +1152,7 @@
         }
       }
     },
-    "\/price": {
+    "/price": {
       "get": {
         "tags": [
           "price"
@@ -1158,15 +1178,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "filter[validFrom]",
+            "in": "query",
+            "description": "Valid From Date filter",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/getPriceCollectionResponse"
+                  "$ref": "#/components/schemas/getPriceCollectionResponse"
                 }
               }
             }
@@ -1174,9 +1203,9 @@
           "401": {
             "description": "Unauthorized",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1184,9 +1213,9 @@
           "403": {
             "description": "Forbidden",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1194,9 +1223,9 @@
           "400": {
             "description": "Bad Request",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1204,9 +1233,9 @@
           "500": {
             "description": "Server error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1214,9 +1243,9 @@
           "default": {
             "description": "Unexpected error",
             "content": {
-              "application\/json": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#\/components\/schemas\/errorResponse"
+                  "$ref": "#/components/schemas/errorResponse"
                 }
               }
             }
@@ -1233,7 +1262,7 @@
             "description": "errors",
             "type": "array",
             "items": {
-              "$ref": "#\/components\/schemas\/error"
+              "$ref": "#/components/schemas/error"
             }
           }
         },
@@ -1276,7 +1305,7 @@
       "getAuthPermissionCollectionResponse": {
         "type": "array",
         "items": {
-          "$ref": "#\/components\/schemas\/authPermissionResource"
+          "$ref": "#/components/schemas/authPermissionResource"
         }
       },
       "authRoleResource": {
@@ -1299,7 +1328,7 @@
       "authRoleCollection": {
         "type": "array",
         "items": {
-          "$ref": "#\/components\/schemas\/authRoleResource"
+          "$ref": "#/components/schemas/authRoleResource"
         }
       },
       "authRoleIdentityResource": {
@@ -1322,14 +1351,15 @@
       "authRoleIdentityCollection": {
         "type": "array",
         "items": {
-          "$ref": "#\/components\/schemas\/authRoleIdentityResource"
+          "$ref": "#/components/schemas/authRoleIdentityResource"
         }
       },
       "customerPricingProfile": {
         "required": [
           "customerPricingProfileId",
           "customerId",
-          "skuCode"
+          "skuCode",
+          "validFrom"
         ],
         "type": "object",
         "allOf": [
@@ -1343,14 +1373,15 @@
             "type": "object"
           },
           {
-            "$ref": "#\/components\/schemas\/newCustomerPricingProfile"
+            "$ref": "#/components/schemas/newCustomerPricingProfile"
           }
         ]
       },
       "newCustomerPricingProfile": {
         "required": [
           "customerId",
-          "skuCode"
+          "skuCode",
+          "validFrom"
         ],
         "properties": {
           "customerId": {
@@ -1362,13 +1393,18 @@
             "type": "string"
           },
           "price": {
-            "$ref": "#\/components\/schemas\/priceProperty"
+            "$ref": "#/components/schemas/priceProperty"
           },
           "percent": {
             "nullable": true,
             "description": "Percent (5 digits precision, 5 pre-decimal digits)",
             "type": "number",
             "format": "float"
+          },
+          "validFrom": {
+            "description": "Start date from when on the price is valid",
+            "type": "string",
+            "format": "date-time"
           }
         },
         "type": "object"
@@ -1398,7 +1434,8 @@
         "required": [
           "organizationPricingProfileId",
           "organizationId",
-          "skuCode"
+          "skuCode",
+          "validFrom"
         ],
         "type": "object",
         "allOf": [
@@ -1412,7 +1449,7 @@
             "type": "object"
           },
           {
-            "$ref": "#\/components\/schemas\/newOrganizationPricingProfile"
+            "$ref": "#/components/schemas/newOrganizationPricingProfile"
           }
         ]
       },
@@ -1420,7 +1457,8 @@
         "description": "Class OrganizationPricingProfileResource",
         "required": [
           "organizationId",
-          "skuCode"
+          "skuCode",
+          "validFrom"
         ],
         "properties": {
           "organizationId": {
@@ -1432,13 +1470,18 @@
             "type": "string"
           },
           "price": {
-            "$ref": "#\/components\/schemas\/priceProperty"
+            "$ref": "#/components/schemas/priceProperty"
           },
           "percent": {
             "nullable": true,
             "description": "Percent (5 digits precision, 5 pre-decimal digits)",
             "type": "number",
             "format": "float"
+          },
+          "validFrom": {
+            "description": "Start date from when on the price is valid",
+            "type": "string",
+            "format": "date-time"
           }
         },
         "type": "object"
@@ -1460,7 +1503,7 @@
             "type": "string"
           },
           "price": {
-            "$ref": "#\/components\/schemas\/priceProperty"
+            "$ref": "#/components/schemas/priceProperty"
           },
           "percent": {
             "nullable": true,
@@ -1475,7 +1518,7 @@
         "description": "Class PriceResource",
         "type": "array",
         "items": {
-          "$ref": "#\/components\/schemas\/price"
+          "$ref": "#/components/schemas/price"
         }
       }
     },
@@ -1485,7 +1528,7 @@
         "description": "OAuth2 Authorization",
         "flows": {
           "clientCredentials": {
-            "tokenUrl": "https:\/\/authentication-api.conqore.niceshops.com\/oauth\/token",
+            "tokenUrl": "https://authentication-api.conqore.niceshops.com/oauth/token",
             "refreshUrl": "UNDEFINED",
             "scopes": {}
           }

@@ -18,4 +18,8 @@ export type newCustomerPricingProfile = {
      * Percent (5 digits precision, 5 pre-decimal digits)
      */
     percent?: number | null;
+    /**
+     * Start date from when on the price is valid
+     */
+    validFrom: string;
 }

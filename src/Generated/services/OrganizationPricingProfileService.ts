@@ -63,7 +63,7 @@ export class OrganizationPricingProfileService {
      * Add a new Organization Pricing Profile
      * @param organizationPricingProfileId Organization Pricing Profile Id
      * @param requestBody
-     * @returns organizationPricingProfile Created
+     * @returns organizationPricingProfile Ok
      * @throws ApiError
      */
     public static async putOrganizationPricingProfile(

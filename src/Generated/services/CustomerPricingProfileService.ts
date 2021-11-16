@@ -63,7 +63,7 @@ export class CustomerPricingProfileService {
      * Add a new Customer Pricing Profile
      * @param customerPricingProfileId Customer Pricing Profile Id
      * @param requestBody
-     * @returns customerPricingProfile Created
+     * @returns customerPricingProfile Ok
      * @throws ApiError
      */
     public static async putCustomerPricingProfile(
