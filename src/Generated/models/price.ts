@@ -3,6 +3,7 @@
 /* eslint-disable */
 
 import type { priceProperty } from './priceProperty';
+import type { steppedPrice } from './steppedPrice';
 
 export type price = {
     /**
@@ -10,12 +11,19 @@ export type price = {
      */
     skuCode: string;
     /**
-     * Organization Id
+     * Customer Id
      */
-    organizationId: string;
-    price: priceProperty;
+    customerId: string;
+    /**
+     * Price
+     */
+    price?: priceProperty | null;
     /**
      * Percent (5 digits precision, 5 pre-decimal digits)
      */
     percent?: number | null;
+    /**
+     * Stepped Prices
+     */
+    steppedPrices?: Array<steppedPrice> | null;
 }

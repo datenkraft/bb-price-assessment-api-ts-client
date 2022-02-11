@@ -19,6 +19,7 @@ export type { newOrganizationPricingProfile } from './models/newOrganizationPric
 export type { organizationPricingProfile } from './models/organizationPricingProfile';
 export type { price } from './models/price';
 export type { priceProperty } from './models/priceProperty';
+export type { steppedPrice } from './models/steppedPrice';
 
 export { AuthRoleIdentityService } from './services/AuthRoleIdentityService';
 export { AuthRoleService } from './services/AuthRoleService';
