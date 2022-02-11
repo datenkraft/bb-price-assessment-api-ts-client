@@ -83,8 +83,8 @@ jobs:
             git config user.email $BITBUCKET_USER_EMAIL && \
             git config user.name $BITBUCKET_USER_NAME && \
             git checkout main && \
-            git clean -f && \
             git pull && \
+            git reset --hard HEAD && \
             npm version from-git -m "Bumped package version to %s" --allow-same-version && \
             git diff --quiet main origin/main || git push
       - run:
