@@ -4,9 +4,6 @@
 
 import type { priceProperty } from './priceProperty';
 
-/**
- * Class SteppedPriceResource
- */
 export type steppedPrice = {
     /**
      * Valid from Quantity
