@@ -4,7 +4,9 @@
 
 import type { price } from './price';
 
-/**
- * Class PriceResource
- */
-export type getPriceCollectionResponse = Array<price>;
+export type getPriceCollectionResponse = Array<({
+    /**
+     * Customer Id
+     */
+    customerId?: string,
+} & price)>;

@@ -4,13 +4,41 @@
 import type { errorResponse } from '../models/errorResponse';
 import type { newOrganizationPricingProfile } from '../models/newOrganizationPricingProfile';
 import type { organizationPricingProfile } from '../models/organizationPricingProfile';
+import type { organizationPricingProfileCollection } from '../models/organizationPricingProfileCollection';
 import { request as __request } from '../core/request';
 
 export class OrganizationPricingProfileService {
 
     /**
+     * Query Organization Pricing Profile collection by organization ids
+     * Query Organization Pricing Profile collection by organization ids
+     * @param filterOrganizationIds Comma seperated list of organization ids (optional)
+     * @returns organizationPricingProfileCollection OK
+     * @returns errorResponse Unexpected error
+     * @throws ApiError
+     */
+    public static async getOrganizationPricingProfileCollection(
+        filterOrganizationIds?: string,
+    ): Promise<organizationPricingProfileCollection | errorResponse> {
+        const result = await __request({
+            method: 'GET',
+            path: `/organization-pricing-profile`,
+            query: {
+                'filter[organizationIds]': filterOrganizationIds,
+            },
+            errors: {
+                400: `Bad Request`,
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                500: `Server error`,
+            },
+        });
+        return result.body;
+    }
+
+    /**
      * Add a new Organization Pricing Profile
-     * Add a new Organization Pricing Profile
+     * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
      * @param requestBody
      * @returns organizationPricingProfile Created
      * @throws ApiError
@@ -59,8 +87,8 @@ export class OrganizationPricingProfileService {
     }
 
     /**
-     * Add a new Organization Pricing Profile
-     * Add a new Organization Pricing Profile
+     * Update a Organization Pricing Profile
+     * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
      * @param organizationPricingProfileId Organization Pricing Profile Id
      * @param requestBody
      * @returns organizationPricingProfile Ok

@@ -2,9 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-/**
- * Class CustomerPricingProfileResource
- */
 export type priceProperty = {
     /**
      * Minor Micro
