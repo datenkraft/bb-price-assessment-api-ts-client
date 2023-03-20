@@ -23,11 +23,12 @@ describe("Client Test (staging)", () => {
           .then((data) => {
             if (data instanceof Array) {
               expect(data).toContain({
-                roleCode: "bb-accounting-profile-api/auth_access-management",
+                roleCode: "bb-price-assessment-api/auth_access-management",
                 name: "Role for access management",
               });
+              done();
             }
-            done();
+            fail("Auth Role Collection not found");
           })
           .catch((error) => done(error));
       })
