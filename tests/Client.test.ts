@@ -22,7 +22,7 @@ describe("Client Test (staging)", () => {
           .getAuthRoleCollection()
           .then((data) => {
             if (data instanceof Array) {
-              expect(data).toContain({
+              expect(data).toContainEqual({
                 roleCode: "bb-price-assessment-api/auth_access-management",
                 name: "Role for access management",
               });
