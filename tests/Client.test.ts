@@ -20,15 +20,15 @@ describe("Client Test (staging)", () => {
 
         authRoleApi
           .getAuthRoleCollection()
-          .then((data) => {
-            if (data instanceof Array) {
-              expect(data).toContainEqual({
+          .then(({ data: response }) => {
+            if (response instanceof Array) {
+              expect(response).toContainEqual({
                 roleCode: "bb-price-assessment-api/auth_access-management",
                 name: "Role for access management",
               });
               done();
             } else {
-              fail("Auth Role Collection not found");
+              done("Auth Role Collection not found");
             }
           })
           .catch((error) => done(error));
