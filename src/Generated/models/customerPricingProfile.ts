@@ -2,11 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { newCustomerPricingProfile } from './newCustomerPricingProfile';
+import type { baseCustomerPricingProfile } from './baseCustomerPricingProfile';
 
 export type customerPricingProfile = ({
     /**
      * Customer Pricing Profile Id
      */
     customerPricingProfileId?: string,
-} & newCustomerPricingProfile);
+} & baseCustomerPricingProfile);

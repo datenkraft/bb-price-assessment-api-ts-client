@@ -2,11 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { price } from './price';
+import type { baseOrganizationPricingProfile } from './baseOrganizationPricingProfile';
 
-export type newOrganizationPricingProfile = ({
-    /**
-     * Organization Id
-     */
-    organizationId?: string,
-} & price);
+export type newOrganizationPricingProfile = baseOrganizationPricingProfile;
