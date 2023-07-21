@@ -5,6 +5,7 @@ import type { errorResponse } from '../models/errorResponse';
 import type { newOrganizationPricingProfile } from '../models/newOrganizationPricingProfile';
 import type { organizationPricingProfile } from '../models/organizationPricingProfile';
 import type { organizationPricingProfileCollection } from '../models/organizationPricingProfileCollection';
+import type { patchOrganizationPricingProfile } from '../models/patchOrganizationPricingProfile';
 import { request as __request } from '../core/request';
 
 export class OrganizationPricingProfileService {
@@ -38,7 +39,8 @@ export class OrganizationPricingProfileService {
 
     /**
      * Add a new Organization Pricing Profile
-     * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
+     * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an
+     * existing pricing profile.
      * @param requestBody
      * @returns organizationPricingProfile Created
      * @throws ApiError
@@ -87,34 +89,6 @@ export class OrganizationPricingProfileService {
     }
 
     /**
-     * Update a Organization Pricing Profile
-     * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-     * @param organizationPricingProfileId Organization Pricing Profile Id
-     * @param requestBody
-     * @returns organizationPricingProfile Ok
-     * @throws ApiError
-     */
-    public static async putOrganizationPricingProfile(
-        organizationPricingProfileId: string,
-        requestBody: newOrganizationPricingProfile,
-    ): Promise<organizationPricingProfile> {
-        const result = await __request({
-            method: 'PUT',
-            path: `/organization-pricing-profile/${organizationPricingProfileId}`,
-            body: requestBody,
-            errors: {
-                400: `Bad Request`,
-                401: `Unauthorized`,
-                403: `Forbidden`,
-                409: `Conflict`,
-                422: `Unprocessable Entity`,
-                500: `Server error`,
-            },
-        });
-        return result.body;
-    }
-
-    /**
      * Delete Organization Pricing Profile
      * Delete Organization Pricing Profile
      * @param organizationPricingProfileId Organization Pricing Profile Id
@@ -131,6 +105,35 @@ export class OrganizationPricingProfileService {
                 400: `Bad Request`,
                 401: `Unauthorized`,
                 403: `Forbidden`,
+                500: `Server error`,
+            },
+        });
+        return result.body;
+    }
+
+    /**
+     * Update a Organization Pricing Profile
+     * Update one or more fields of a Organization Pricing Profile.\
+     * Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * @param organizationPricingProfileId Organization Pricing Profile Id
+     * @param requestBody
+     * @returns organizationPricingProfile Ok
+     * @throws ApiError
+     */
+    public static async patchOrganizationPricingProfile(
+        organizationPricingProfileId: string,
+        requestBody: patchOrganizationPricingProfile,
+    ): Promise<organizationPricingProfile> {
+        const result = await __request({
+            method: 'PATCH',
+            path: `/organization-pricing-profile/${organizationPricingProfileId}`,
+            body: requestBody,
+            errors: {
+                400: `Bad Request`,
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                409: `Conflict`,
+                422: `Unprocessable Entity`,
                 500: `Server error`,
             },
         });

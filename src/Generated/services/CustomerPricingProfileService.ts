@@ -5,6 +5,7 @@ import type { customerPricingProfile } from '../models/customerPricingProfile';
 import type { customerPricingProfileCollection } from '../models/customerPricingProfileCollection';
 import type { errorResponse } from '../models/errorResponse';
 import type { newCustomerPricingProfile } from '../models/newCustomerPricingProfile';
+import type { patchCustomerPricingProfile } from '../models/patchCustomerPricingProfile';
 import { request as __request } from '../core/request';
 
 export class CustomerPricingProfileService {
@@ -38,7 +39,8 @@ export class CustomerPricingProfileService {
 
     /**
      * Add a new Customer Pricing Profile
-     * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
+     * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an
+     * existing pricing profile.
      * @param requestBody
      * @returns customerPricingProfile Created
      * @throws ApiError
@@ -87,34 +89,6 @@ export class CustomerPricingProfileService {
     }
 
     /**
-     * Update a Customer Pricing Profile
-     * Update a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-     * @param customerPricingProfileId Customer Pricing Profile Id
-     * @param requestBody
-     * @returns customerPricingProfile Ok
-     * @throws ApiError
-     */
-    public static async putCustomerPricingProfile(
-        customerPricingProfileId: string,
-        requestBody: newCustomerPricingProfile,
-    ): Promise<customerPricingProfile> {
-        const result = await __request({
-            method: 'PUT',
-            path: `/customer-pricing-profile/${customerPricingProfileId}`,
-            body: requestBody,
-            errors: {
-                400: `Bad Request`,
-                401: `Unauthorized`,
-                403: `Forbidden`,
-                409: `Conflict`,
-                422: `Unprocessable Entity`,
-                500: `Server error`,
-            },
-        });
-        return result.body;
-    }
-
-    /**
      * Delete Customer Pricing Profile
      * Delete Customer Pricing Profile
      * @param customerPricingProfileId Customer Pricing Profile Id
@@ -131,6 +105,35 @@ export class CustomerPricingProfileService {
                 400: `Bad Request`,
                 401: `Unauthorized`,
                 403: `Forbidden`,
+                500: `Server error`,
+            },
+        });
+        return result.body;
+    }
+
+    /**
+     * Update a Customer Pricing Profile
+     * Update one or more fields of a Customer Pricing Profile.\
+     * Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * @param customerPricingProfileId Customer Pricing Profile Id
+     * @param requestBody
+     * @returns customerPricingProfile Ok
+     * @throws ApiError
+     */
+    public static async patchCustomerPricingProfile(
+        customerPricingProfileId: string,
+        requestBody: patchCustomerPricingProfile,
+    ): Promise<customerPricingProfile> {
+        const result = await __request({
+            method: 'PATCH',
+            path: `/customer-pricing-profile/${customerPricingProfileId}`,
+            body: requestBody,
+            errors: {
+                400: `Bad Request`,
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                409: `Conflict`,
+                422: `Unprocessable Entity`,
                 500: `Server error`,
             },
         });
