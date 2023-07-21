@@ -30,6 +30,8 @@ import { CustomerPricingProfile } from '../models';
 import { ErrorResponse } from '../models';
 // @ts-ignore
 import { NewCustomerPricingProfile } from '../models';
+// @ts-ignore
+import { PatchCustomerPricingProfile } from '../models';
 /**
  * CustomerPricingProfileApi - axios parameter creator
  * @export
@@ -164,16 +166,20 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
-         * @summary Add a new Customer Pricing Profile
-         * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
+         * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * @summary Update a Customer Pricing Profile
+         * @param {string} customerPricingProfileId Customer Pricing Profile Id
+         * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postCustomerPricingProfile: async (newCustomerPricingProfile: NewCustomerPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'newCustomerPricingProfile' is not null or undefined
-            assertParamExists('postCustomerPricingProfile', 'newCustomerPricingProfile', newCustomerPricingProfile)
-            const localVarPath = `/customer-pricing-profile`;
+        patchCustomerPricingProfile: async (customerPricingProfileId: string, patchCustomerPricingProfile: PatchCustomerPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerPricingProfileId' is not null or undefined
+            assertParamExists('patchCustomerPricingProfile', 'customerPricingProfileId', customerPricingProfileId)
+            // verify required parameter 'patchCustomerPricingProfile' is not null or undefined
+            assertParamExists('patchCustomerPricingProfile', 'patchCustomerPricingProfile', patchCustomerPricingProfile)
+            const localVarPath = `/customer-pricing-profile/{customerPricingProfileId}`
+                .replace(`{${"customerPricingProfileId"}}`, encodeURIComponent(String(customerPricingProfileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -181,7 +187,7 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -200,7 +206,7 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(newCustomerPricingProfile, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(patchCustomerPricingProfile, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -208,20 +214,16 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Update a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-         * @summary Update a Customer Pricing Profile
-         * @param {string} customerPricingProfileId Customer Pricing Profile Id
+         * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
+         * @summary Add a new Customer Pricing Profile
          * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        putCustomerPricingProfile: async (customerPricingProfileId: string, newCustomerPricingProfile: NewCustomerPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'customerPricingProfileId' is not null or undefined
-            assertParamExists('putCustomerPricingProfile', 'customerPricingProfileId', customerPricingProfileId)
+        postCustomerPricingProfile: async (newCustomerPricingProfile: NewCustomerPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'newCustomerPricingProfile' is not null or undefined
-            assertParamExists('putCustomerPricingProfile', 'newCustomerPricingProfile', newCustomerPricingProfile)
-            const localVarPath = `/customer-pricing-profile/{customerPricingProfileId}`
-                .replace(`{${"customerPricingProfileId"}}`, encodeURIComponent(String(customerPricingProfileId)));
+            assertParamExists('postCustomerPricingProfile', 'newCustomerPricingProfile', newCustomerPricingProfile)
+            const localVarPath = `/customer-pricing-profile`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -229,7 +231,7 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -299,6 +301,18 @@ export const CustomerPricingProfileApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * @summary Update a Customer Pricing Profile
+         * @param {string} customerPricingProfileId Customer Pricing Profile Id
+         * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchCustomerPricingProfile(customerPricingProfileId: string, patchCustomerPricingProfile: PatchCustomerPricingProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPricingProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCustomerPricingProfile(customerPricingProfileId, patchCustomerPricingProfile, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
          * @summary Add a new Customer Pricing Profile
          * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
@@ -307,18 +321,6 @@ export const CustomerPricingProfileApiFp = function(configuration?: Configuratio
          */
         async postCustomerPricingProfile(newCustomerPricingProfile: NewCustomerPricingProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPricingProfile>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postCustomerPricingProfile(newCustomerPricingProfile, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-         * @summary Update a Customer Pricing Profile
-         * @param {string} customerPricingProfileId Customer Pricing Profile Id
-         * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async putCustomerPricingProfile(customerPricingProfileId: string, newCustomerPricingProfile: NewCustomerPricingProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPricingProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putCustomerPricingProfile(customerPricingProfileId, newCustomerPricingProfile, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -362,6 +364,17 @@ export const CustomerPricingProfileApiFactory = function (configuration?: Config
             return localVarFp.getCustomerPricingProfileCollectionEndpoint(filterCustomerIds, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * @summary Update a Customer Pricing Profile
+         * @param {string} customerPricingProfileId Customer Pricing Profile Id
+         * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchCustomerPricingProfile(customerPricingProfileId: string, patchCustomerPricingProfile: PatchCustomerPricingProfile, options?: any): AxiosPromise<CustomerPricingProfile> {
+            return localVarFp.patchCustomerPricingProfile(customerPricingProfileId, patchCustomerPricingProfile, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
          * @summary Add a new Customer Pricing Profile
          * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
@@ -370,17 +383,6 @@ export const CustomerPricingProfileApiFactory = function (configuration?: Config
          */
         postCustomerPricingProfile(newCustomerPricingProfile: NewCustomerPricingProfile, options?: any): AxiosPromise<CustomerPricingProfile> {
             return localVarFp.postCustomerPricingProfile(newCustomerPricingProfile, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-         * @summary Update a Customer Pricing Profile
-         * @param {string} customerPricingProfileId Customer Pricing Profile Id
-         * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        putCustomerPricingProfile(customerPricingProfileId: string, newCustomerPricingProfile: NewCustomerPricingProfile, options?: any): AxiosPromise<CustomerPricingProfile> {
-            return localVarFp.putCustomerPricingProfile(customerPricingProfileId, newCustomerPricingProfile, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -422,6 +424,17 @@ export interface CustomerPricingProfileApiInterface {
     getCustomerPricingProfileCollectionEndpoint(filterCustomerIds?: string, options?: AxiosRequestConfig): AxiosPromise<Array<CustomerPricingProfile>>;
 
     /**
+     * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * @summary Update a Customer Pricing Profile
+     * @param {string} customerPricingProfileId Customer Pricing Profile Id
+     * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomerPricingProfileApiInterface
+     */
+    patchCustomerPricingProfile(customerPricingProfileId: string, patchCustomerPricingProfile: PatchCustomerPricingProfile, options?: AxiosRequestConfig): AxiosPromise<CustomerPricingProfile>;
+
+    /**
      * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
      * @summary Add a new Customer Pricing Profile
      * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
@@ -430,17 +443,6 @@ export interface CustomerPricingProfileApiInterface {
      * @memberof CustomerPricingProfileApiInterface
      */
     postCustomerPricingProfile(newCustomerPricingProfile: NewCustomerPricingProfile, options?: AxiosRequestConfig): AxiosPromise<CustomerPricingProfile>;
-
-    /**
-     * Update a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-     * @summary Update a Customer Pricing Profile
-     * @param {string} customerPricingProfileId Customer Pricing Profile Id
-     * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CustomerPricingProfileApiInterface
-     */
-    putCustomerPricingProfile(customerPricingProfileId: string, newCustomerPricingProfile: NewCustomerPricingProfile, options?: AxiosRequestConfig): AxiosPromise<CustomerPricingProfile>;
 
 }
 
@@ -488,6 +490,19 @@ export class CustomerPricingProfileApi extends BaseAPI implements CustomerPricin
     }
 
     /**
+     * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * @summary Update a Customer Pricing Profile
+     * @param {string} customerPricingProfileId Customer Pricing Profile Id
+     * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomerPricingProfileApi
+     */
+    public patchCustomerPricingProfile(customerPricingProfileId: string, patchCustomerPricingProfile: PatchCustomerPricingProfile, options?: AxiosRequestConfig) {
+        return CustomerPricingProfileApiFp(this.configuration).patchCustomerPricingProfile(customerPricingProfileId, patchCustomerPricingProfile, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Add a new Customer Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
      * @summary Add a new Customer Pricing Profile
      * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
@@ -497,18 +512,5 @@ export class CustomerPricingProfileApi extends BaseAPI implements CustomerPricin
      */
     public postCustomerPricingProfile(newCustomerPricingProfile: NewCustomerPricingProfile, options?: AxiosRequestConfig) {
         return CustomerPricingProfileApiFp(this.configuration).postCustomerPricingProfile(newCustomerPricingProfile, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-     * @summary Update a Customer Pricing Profile
-     * @param {string} customerPricingProfileId Customer Pricing Profile Id
-     * @param {NewCustomerPricingProfile} newCustomerPricingProfile 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CustomerPricingProfileApi
-     */
-    public putCustomerPricingProfile(customerPricingProfileId: string, newCustomerPricingProfile: NewCustomerPricingProfile, options?: AxiosRequestConfig) {
-        return CustomerPricingProfileApiFp(this.configuration).putCustomerPricingProfile(customerPricingProfileId, newCustomerPricingProfile, options).then((request) => request(this.axios, this.basePath));
     }
 }

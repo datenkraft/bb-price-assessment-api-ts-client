@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { NewOrganizationPricingProfile } from './new-organization-pricing-profile';
+import { BaseOrganizationPricingProfile } from './base-organization-pricing-profile';
 // May contain unused imports in some cases
 // @ts-ignore
 import { OrganizationPricingProfileAllOf } from './organization-pricing-profile-all-of';
@@ -30,6 +30,6 @@ import { SteppedPrice } from './stepped-price';
  * @type OrganizationPricingProfile
  * @export
  */
-export type OrganizationPricingProfile = NewOrganizationPricingProfile & OrganizationPricingProfileAllOf;
+export type OrganizationPricingProfile = BaseOrganizationPricingProfile & OrganizationPricingProfileAllOf;
 
 

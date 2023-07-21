@@ -31,7 +31,7 @@ export interface Price {
      * @type {string}
      * @memberof Price
      */
-    'skuCode': string;
+    'skuCode'?: string;
     /**
      * 
      * @type {PricePrice}

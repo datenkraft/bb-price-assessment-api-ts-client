@@ -15,10 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { NewCustomerPricingProfileAllOf } from './new-customer-pricing-profile-all-of';
-// May contain unused imports in some cases
-// @ts-ignore
-import { Price } from './price';
+import { BaseCustomerPricingProfile } from './base-customer-pricing-profile';
 // May contain unused imports in some cases
 // @ts-ignore
 import { PricePrice } from './price-price';
@@ -30,6 +27,6 @@ import { SteppedPrice } from './stepped-price';
  * @type NewCustomerPricingProfile
  * @export
  */
-export type NewCustomerPricingProfile = NewCustomerPricingProfileAllOf & Price;
+export type NewCustomerPricingProfile = BaseCustomerPricingProfile;
 
 
