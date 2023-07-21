@@ -13,18 +13,24 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { AuditLog } from './audit-log';
+// May contain unused imports in some cases
+// @ts-ignore
+import { AuditLogCollectionAllOf } from './audit-log-collection-all-of';
+// May contain unused imports in some cases
+// @ts-ignore
+import { Collection } from './collection';
+// May contain unused imports in some cases
+// @ts-ignore
+import { CollectionPagination } from './collection-pagination';
 
 /**
- * 
+ * @type AuditLogCollection
+ * A collection of audit log entries
  * @export
- * @interface NewOrganizationPricingProfileAllOf
  */
-export interface NewOrganizationPricingProfileAllOf {
-    /**
-     * Organization Id
-     * @type {string}
-     * @memberof NewOrganizationPricingProfileAllOf
-     */
-    'organizationId'?: string;
-}
+export type AuditLogCollection = AuditLogCollectionAllOf & Collection;
+
 

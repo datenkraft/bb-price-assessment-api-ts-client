@@ -30,6 +30,8 @@ import { ErrorResponse } from '../models';
 import { NewOrganizationPricingProfile } from '../models';
 // @ts-ignore
 import { OrganizationPricingProfile } from '../models';
+// @ts-ignore
+import { PatchOrganizationPricingProfile } from '../models';
 /**
  * OrganizationPricingProfileApi - axios parameter creator
  * @export
@@ -164,16 +166,20 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
             };
         },
         /**
-         * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
-         * @summary Add a new Organization Pricing Profile
-         * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
+         * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * @summary Update a Organization Pricing Profile
+         * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postOrganizationPricingProfile: async (newOrganizationPricingProfile: NewOrganizationPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'newOrganizationPricingProfile' is not null or undefined
-            assertParamExists('postOrganizationPricingProfile', 'newOrganizationPricingProfile', newOrganizationPricingProfile)
-            const localVarPath = `/organization-pricing-profile`;
+        patchOrganizationPricingProfile: async (organizationPricingProfileId: string, patchOrganizationPricingProfile: PatchOrganizationPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'organizationPricingProfileId' is not null or undefined
+            assertParamExists('patchOrganizationPricingProfile', 'organizationPricingProfileId', organizationPricingProfileId)
+            // verify required parameter 'patchOrganizationPricingProfile' is not null or undefined
+            assertParamExists('patchOrganizationPricingProfile', 'patchOrganizationPricingProfile', patchOrganizationPricingProfile)
+            const localVarPath = `/organization-pricing-profile/{organizationPricingProfileId}`
+                .replace(`{${"organizationPricingProfileId"}}`, encodeURIComponent(String(organizationPricingProfileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -181,7 +187,7 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -200,7 +206,7 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(newOrganizationPricingProfile, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(patchOrganizationPricingProfile, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -208,20 +214,16 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
             };
         },
         /**
-         * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-         * @summary Update a Organization Pricing Profile
-         * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
+         * @summary Add a new Organization Pricing Profile
          * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        putOrganizationPricingProfile: async (organizationPricingProfileId: string, newOrganizationPricingProfile: NewOrganizationPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'organizationPricingProfileId' is not null or undefined
-            assertParamExists('putOrganizationPricingProfile', 'organizationPricingProfileId', organizationPricingProfileId)
+        postOrganizationPricingProfile: async (newOrganizationPricingProfile: NewOrganizationPricingProfile, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'newOrganizationPricingProfile' is not null or undefined
-            assertParamExists('putOrganizationPricingProfile', 'newOrganizationPricingProfile', newOrganizationPricingProfile)
-            const localVarPath = `/organization-pricing-profile/{organizationPricingProfileId}`
-                .replace(`{${"organizationPricingProfileId"}}`, encodeURIComponent(String(organizationPricingProfileId)));
+            assertParamExists('postOrganizationPricingProfile', 'newOrganizationPricingProfile', newOrganizationPricingProfile)
+            const localVarPath = `/organization-pricing-profile`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -229,7 +231,7 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -299,6 +301,18 @@ export const OrganizationPricingProfileApiFp = function(configuration?: Configur
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * @summary Update a Organization Pricing Profile
+         * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchOrganizationPricingProfile(organizationPricingProfileId: string, patchOrganizationPricingProfile: PatchOrganizationPricingProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationPricingProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOrganizationPricingProfile(organizationPricingProfileId, patchOrganizationPricingProfile, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
          * @summary Add a new Organization Pricing Profile
          * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
@@ -307,18 +321,6 @@ export const OrganizationPricingProfileApiFp = function(configuration?: Configur
          */
         async postOrganizationPricingProfile(newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationPricingProfile>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postOrganizationPricingProfile(newOrganizationPricingProfile, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-         * @summary Update a Organization Pricing Profile
-         * @param {string} organizationPricingProfileId Organization Pricing Profile Id
-         * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async putOrganizationPricingProfile(organizationPricingProfileId: string, newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationPricingProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putOrganizationPricingProfile(organizationPricingProfileId, newOrganizationPricingProfile, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -362,6 +364,17 @@ export const OrganizationPricingProfileApiFactory = function (configuration?: Co
             return localVarFp.getOrganizationPricingProfileCollection(filterOrganizationIds, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * @summary Update a Organization Pricing Profile
+         * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchOrganizationPricingProfile(organizationPricingProfileId: string, patchOrganizationPricingProfile: PatchOrganizationPricingProfile, options?: any): AxiosPromise<OrganizationPricingProfile> {
+            return localVarFp.patchOrganizationPricingProfile(organizationPricingProfileId, patchOrganizationPricingProfile, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
          * @summary Add a new Organization Pricing Profile
          * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
@@ -370,17 +383,6 @@ export const OrganizationPricingProfileApiFactory = function (configuration?: Co
          */
         postOrganizationPricingProfile(newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: any): AxiosPromise<OrganizationPricingProfile> {
             return localVarFp.postOrganizationPricingProfile(newOrganizationPricingProfile, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-         * @summary Update a Organization Pricing Profile
-         * @param {string} organizationPricingProfileId Organization Pricing Profile Id
-         * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        putOrganizationPricingProfile(organizationPricingProfileId: string, newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: any): AxiosPromise<OrganizationPricingProfile> {
-            return localVarFp.putOrganizationPricingProfile(organizationPricingProfileId, newOrganizationPricingProfile, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -422,6 +424,17 @@ export interface OrganizationPricingProfileApiInterface {
     getOrganizationPricingProfileCollection(filterOrganizationIds?: string, options?: AxiosRequestConfig): AxiosPromise<Array<OrganizationPricingProfile>>;
 
     /**
+     * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * @summary Update a Organization Pricing Profile
+     * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+     * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationPricingProfileApiInterface
+     */
+    patchOrganizationPricingProfile(organizationPricingProfileId: string, patchOrganizationPricingProfile: PatchOrganizationPricingProfile, options?: AxiosRequestConfig): AxiosPromise<OrganizationPricingProfile>;
+
+    /**
      * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
      * @summary Add a new Organization Pricing Profile
      * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
@@ -430,17 +443,6 @@ export interface OrganizationPricingProfileApiInterface {
      * @memberof OrganizationPricingProfileApiInterface
      */
     postOrganizationPricingProfile(newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: AxiosRequestConfig): AxiosPromise<OrganizationPricingProfile>;
-
-    /**
-     * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-     * @summary Update a Organization Pricing Profile
-     * @param {string} organizationPricingProfileId Organization Pricing Profile Id
-     * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OrganizationPricingProfileApiInterface
-     */
-    putOrganizationPricingProfile(organizationPricingProfileId: string, newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: AxiosRequestConfig): AxiosPromise<OrganizationPricingProfile>;
 
 }
 
@@ -488,6 +490,19 @@ export class OrganizationPricingProfileApi extends BaseAPI implements Organizati
     }
 
     /**
+     * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * @summary Update a Organization Pricing Profile
+     * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+     * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationPricingProfileApi
+     */
+    public patchOrganizationPricingProfile(organizationPricingProfileId: string, patchOrganizationPricingProfile: PatchOrganizationPricingProfile, options?: AxiosRequestConfig) {
+        return OrganizationPricingProfileApiFp(this.configuration).patchOrganizationPricingProfile(organizationPricingProfileId, patchOrganizationPricingProfile, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Add a new Organization Pricing Profile. You may not use this endpoint to add stepped prices to an existing pricing profile.
      * @summary Add a new Organization Pricing Profile
      * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
@@ -497,18 +512,5 @@ export class OrganizationPricingProfileApi extends BaseAPI implements Organizati
      */
     public postOrganizationPricingProfile(newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: AxiosRequestConfig) {
         return OrganizationPricingProfileApiFp(this.configuration).postOrganizationPricingProfile(newOrganizationPricingProfile, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
-     * @summary Update a Organization Pricing Profile
-     * @param {string} organizationPricingProfileId Organization Pricing Profile Id
-     * @param {NewOrganizationPricingProfile} newOrganizationPricingProfile 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OrganizationPricingProfileApi
-     */
-    public putOrganizationPricingProfile(organizationPricingProfileId: string, newOrganizationPricingProfile: NewOrganizationPricingProfile, options?: AxiosRequestConfig) {
-        return OrganizationPricingProfileApiFp(this.configuration).putOrganizationPricingProfile(organizationPricingProfileId, newOrganizationPricingProfile, options).then((request) => request(this.axios, this.basePath));
     }
 }
