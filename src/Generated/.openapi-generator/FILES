@@ -30,6 +30,7 @@ models/collection-pagination.ts
 models/collection.ts
 models/customer-pricing-profile-all-of.ts
 models/customer-pricing-profile.ts
+models/error-references-inner.ts
 models/error-response.ts
 models/get-price-collection-response-inner-all-of.ts
 models/get-price-collection-response-inner.ts

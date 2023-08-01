@@ -13,6 +13,7 @@ export * from './collection';
 export * from './collection-pagination';
 export * from './customer-pricing-profile';
 export * from './customer-pricing-profile-all-of';
+export * from './error-references-inner';
 export * from './error-response';
 export * from './get-price-collection-response-inner';
 export * from './get-price-collection-response-inner-all-of';
