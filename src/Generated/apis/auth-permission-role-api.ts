@@ -82,7 +82,7 @@ export const AuthPermissionRoleApiAxiosParamCreator = function (configuration?: 
          * Get all role to permission assignments from this resource server
          * @summary Get all role to permission assignments from this resource server
          * @param {number} [page] The page to read. Default is the first page.
-         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {number} [pageSize] The maximum size per page is 100.
          * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -200,7 +200,7 @@ export const AuthPermissionRoleApiFp = function(configuration?: Configuration) {
          * Get all role to permission assignments from this resource server
          * @summary Get all role to permission assignments from this resource server
          * @param {number} [page] The page to read. Default is the first page.
-         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {number} [pageSize] The maximum size per page is 100.
          * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -244,7 +244,7 @@ export const AuthPermissionRoleApiFactory = function (configuration?: Configurat
          * Get all role to permission assignments from this resource server
          * @summary Get all role to permission assignments from this resource server
          * @param {number} [page] The page to read. Default is the first page.
-         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {number} [pageSize] The maximum size per page is 100.
          * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -285,7 +285,7 @@ export interface AuthPermissionRoleApiInterface {
      * Get all role to permission assignments from this resource server
      * @summary Get all role to permission assignments from this resource server
      * @param {number} [page] The page to read. Default is the first page.
-     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {number} [pageSize] The maximum size per page is 100.
      * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -328,7 +328,7 @@ export class AuthPermissionRoleApi extends BaseAPI implements AuthPermissionRole
      * Get all role to permission assignments from this resource server
      * @summary Get all role to permission assignments from this resource server
      * @param {number} [page] The page to read. Default is the first page.
-     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {number} [pageSize] The maximum size per page is 100.
      * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
