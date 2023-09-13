@@ -12,7 +12,7 @@ export class AuthPermissionRoleService {
      * Get all role to permission assignments from this resource server
      * Get all role to permission assignments from this resource server
      * @param page The page to read. Default is the first page.
-     * @param pageSize The maximum size per page is 100. Default is 100.
+     * @param pageSize The maximum size per page is 100.
      * @param paginationMode The paginationMode to use:
      * - default: The total number of items in the collection will not be calculated.
      * - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
