@@ -13,7 +13,7 @@ describe("Client Test (staging)", () => {
 
     PriceAssessmentApiClient.getApiConfig(
       configOptions,
-      "https://price-assessment-api.staging.backbone.datenkraft.info/v1"
+      "https://price-assessment-api.staging.backbone.datenkraft.info/v2"
     )
       .then((config) => {
         const authRoleApi = new AuthRoleApi(config);
