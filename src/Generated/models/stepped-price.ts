@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PriceProperty } from './price-property';
+import { SteppedPricePriceProperty } from './stepped-price-price-property';
 
 /**
  * 
@@ -31,9 +31,9 @@ export interface SteppedPrice {
     'validFromQuantity': number;
     /**
      * 
-     * @type {PriceProperty}
+     * @type {SteppedPricePriceProperty}
      * @memberof SteppedPrice
      */
-    'price': PriceProperty;
+    'price': SteppedPricePriceProperty;
 }
 

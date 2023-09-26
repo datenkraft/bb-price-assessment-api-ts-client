@@ -49,7 +49,7 @@ export interface BasePrice {
      * @type {Array<SteppedPrice>}
      * @memberof BasePrice
      */
-    'steppedPrices'?: Array<SteppedPrice> | null;
+    'steppedPrices'?: Array<SteppedPrice>;
     /**
      * Start date from when on the price is valid. This price remains valid until a price with a more recent validFrom date is found.
      * @type {string}

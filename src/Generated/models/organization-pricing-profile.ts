@@ -15,21 +15,58 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseOrganizationPricingProfile } from './base-organization-pricing-profile';
-// May contain unused imports in some cases
-// @ts-ignore
 import { BasePricePrice } from './base-price-price';
-// May contain unused imports in some cases
-// @ts-ignore
-import { OrganizationPricingProfileAllOf } from './organization-pricing-profile-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
 import { SteppedPrice } from './stepped-price';
 
 /**
- * @type OrganizationPricingProfile
+ * 
  * @export
+ * @interface OrganizationPricingProfile
  */
-export type OrganizationPricingProfile = BaseOrganizationPricingProfile & OrganizationPricingProfileAllOf;
-
+export interface OrganizationPricingProfile {
+    /**
+     * Organization Pricing Profile Id
+     * @type {string}
+     * @memberof OrganizationPricingProfile
+     */
+    'organizationPricingProfileId': string;
+    /**
+     * Organization Id
+     * @type {string}
+     * @memberof OrganizationPricingProfile
+     */
+    'organizationId': string;
+    /**
+     * SKU Code
+     * @type {string}
+     * @memberof OrganizationPricingProfile
+     */
+    'skuCode': string;
+    /**
+     * 
+     * @type {BasePricePrice}
+     * @memberof OrganizationPricingProfile
+     */
+    'price'?: BasePricePrice | null;
+    /**
+     * Percent (5 digits precision, 5 pre-decimal digits) Used to calculate percentages of the transmitted values, e.g. to calculate commissions.
+     * @type {number}
+     * @memberof OrganizationPricingProfile
+     */
+    'percent'?: number | null;
+    /**
+     * Stepped Prices
+     * @type {Array<SteppedPrice>}
+     * @memberof OrganizationPricingProfile
+     */
+    'steppedPrices'?: Array<SteppedPrice>;
+    /**
+     * Start date from when on the price is valid. This price remains valid until a price with a more recent validFrom date is found.
+     * @type {string}
+     * @memberof OrganizationPricingProfile
+     */
+    'validFrom': string;
+}
 

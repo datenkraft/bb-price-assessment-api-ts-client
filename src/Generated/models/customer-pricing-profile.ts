@@ -15,21 +15,58 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseCustomerPricingProfile } from './base-customer-pricing-profile';
-// May contain unused imports in some cases
-// @ts-ignore
 import { BasePricePrice } from './base-price-price';
-// May contain unused imports in some cases
-// @ts-ignore
-import { CustomerPricingProfileAllOf } from './customer-pricing-profile-all-of';
 // May contain unused imports in some cases
 // @ts-ignore
 import { SteppedPrice } from './stepped-price';
 
 /**
- * @type CustomerPricingProfile
+ * 
  * @export
+ * @interface CustomerPricingProfile
  */
-export type CustomerPricingProfile = BaseCustomerPricingProfile & CustomerPricingProfileAllOf;
-
+export interface CustomerPricingProfile {
+    /**
+     * Customer Pricing Profile Id
+     * @type {string}
+     * @memberof CustomerPricingProfile
+     */
+    'customerPricingProfileId': string;
+    /**
+     * Customer Id
+     * @type {string}
+     * @memberof CustomerPricingProfile
+     */
+    'customerId': string;
+    /**
+     * SKU Code
+     * @type {string}
+     * @memberof CustomerPricingProfile
+     */
+    'skuCode': string;
+    /**
+     * 
+     * @type {BasePricePrice}
+     * @memberof CustomerPricingProfile
+     */
+    'price'?: BasePricePrice | null;
+    /**
+     * Percent (5 digits precision, 5 pre-decimal digits) Used to calculate percentages of the transmitted values, e.g. to calculate commissions.
+     * @type {number}
+     * @memberof CustomerPricingProfile
+     */
+    'percent'?: number | null;
+    /**
+     * Stepped Prices
+     * @type {Array<SteppedPrice>}
+     * @memberof CustomerPricingProfile
+     */
+    'steppedPrices'?: Array<SteppedPrice>;
+    /**
+     * Start date from when on the price is valid. This price remains valid until a price with a more recent validFrom date is found.
+     * @type {string}
+     * @memberof CustomerPricingProfile
+     */
+    'validFrom': string;
+}
 

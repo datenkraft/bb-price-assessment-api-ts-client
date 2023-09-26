@@ -15,18 +15,34 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseCustomerPricingProfile } from './base-customer-pricing-profile';
-// May contain unused imports in some cases
-// @ts-ignore
 import { BasePricePrice } from './base-price-price';
 // May contain unused imports in some cases
 // @ts-ignore
 import { SteppedPrice } from './stepped-price';
 
 /**
- * @type PatchCustomerPricingProfile
+ * 
  * @export
+ * @interface PatchCustomerPricingProfile
  */
-export type PatchCustomerPricingProfile = BaseCustomerPricingProfile;
-
+export interface PatchCustomerPricingProfile {
+    /**
+     * 
+     * @type {BasePricePrice}
+     * @memberof PatchCustomerPricingProfile
+     */
+    'price'?: BasePricePrice | null;
+    /**
+     * Percent (5 digits precision, 5 pre-decimal digits) Used to calculate percentages of the transmittedvalues, e.g. to calculate commissions.
+     * @type {number}
+     * @memberof PatchCustomerPricingProfile
+     */
+    'percent'?: number | null;
+    /**
+     * Stepped Prices
+     * @type {Array<SteppedPrice>}
+     * @memberof PatchCustomerPricingProfile
+     */
+    'steppedPrices'?: Array<SteppedPrice> | null;
+}
 
