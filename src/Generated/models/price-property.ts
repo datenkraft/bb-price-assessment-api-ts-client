@@ -25,12 +25,12 @@ export interface PriceProperty {
      * @type {number}
      * @memberof PriceProperty
      */
-    'minorMicro': number | null;
+    'minorMicro'?: number | null;
     /**
      * Currency
      * @type {string}
      * @memberof PriceProperty
      */
-    'currency': string | null;
+    'currency': string;
 }
 

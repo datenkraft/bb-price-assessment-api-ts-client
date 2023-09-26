@@ -17,14 +17,20 @@
 /**
  * 
  * @export
- * @interface BaseOrganizationPricingProfileAllOf
+ * @interface SteppedPricePriceProperty
  */
-export interface BaseOrganizationPricingProfileAllOf {
+export interface SteppedPricePriceProperty {
     /**
-     * Organization Id
-     * @type {string}
-     * @memberof BaseOrganizationPricingProfileAllOf
+     * Minor Micro
+     * @type {number}
+     * @memberof SteppedPricePriceProperty
      */
-    'organizationId'?: string;
+    'minorMicro': number;
+    /**
+     * Currency
+     * @type {string}
+     * @memberof SteppedPricePriceProperty
+     */
+    'currency': string;
 }
 

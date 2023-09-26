@@ -13,23 +13,18 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { BaseOrganizationPricingProfileAllOf } from './base-organization-pricing-profile-all-of';
-// May contain unused imports in some cases
-// @ts-ignore
-import { BasePrice } from './base-price';
-// May contain unused imports in some cases
-// @ts-ignore
-import { BasePricePrice } from './base-price-price';
-// May contain unused imports in some cases
-// @ts-ignore
-import { SteppedPrice } from './stepped-price';
 
 /**
- * @type BaseOrganizationPricingProfile
+ * 
  * @export
+ * @interface PriceAllOf
  */
-export type BaseOrganizationPricingProfile = BaseOrganizationPricingProfileAllOf & BasePrice;
-
+export interface PriceAllOf {
+    /**
+     * Customer Id
+     * @type {string}
+     * @memberof PriceAllOf
+     */
+    'customerId'?: string;
+}
 

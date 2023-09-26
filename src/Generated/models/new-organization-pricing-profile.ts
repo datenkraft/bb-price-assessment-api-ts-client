@@ -15,18 +15,52 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BaseOrganizationPricingProfile } from './base-organization-pricing-profile';
-// May contain unused imports in some cases
-// @ts-ignore
 import { BasePricePrice } from './base-price-price';
 // May contain unused imports in some cases
 // @ts-ignore
 import { SteppedPrice } from './stepped-price';
 
 /**
- * @type NewOrganizationPricingProfile
+ * 
  * @export
+ * @interface NewOrganizationPricingProfile
  */
-export type NewOrganizationPricingProfile = BaseOrganizationPricingProfile;
-
+export interface NewOrganizationPricingProfile {
+    /**
+     * Organization Id
+     * @type {string}
+     * @memberof NewOrganizationPricingProfile
+     */
+    'organizationId': string;
+    /**
+     * SKU Code
+     * @type {string}
+     * @memberof NewOrganizationPricingProfile
+     */
+    'skuCode': string;
+    /**
+     * 
+     * @type {BasePricePrice}
+     * @memberof NewOrganizationPricingProfile
+     */
+    'price'?: BasePricePrice | null;
+    /**
+     * Percent (5 digits precision, 5 pre-decimal digits) Used to calculate percentages of the transmitted values, e.g. to calculate commissions.
+     * @type {number}
+     * @memberof NewOrganizationPricingProfile
+     */
+    'percent'?: number | null;
+    /**
+     * Stepped Prices
+     * @type {Array<SteppedPrice>}
+     * @memberof NewOrganizationPricingProfile
+     */
+    'steppedPrices'?: Array<SteppedPrice> | null;
+    /**
+     * Start date from when on the price is valid. This price remains valid until a price with a more recent validFrom date is found.
+     * @type {string}
+     * @memberof NewOrganizationPricingProfile
+     */
+    'validFrom': string;
+}
 
