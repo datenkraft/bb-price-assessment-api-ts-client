@@ -104,7 +104,7 @@ export const PriceApiAxiosParamCreator = function (configuration?: Configuration
         getReportPrice: async (filterOrganizationId: string, filterValidFrom?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'filterOrganizationId' is not null or undefined
             assertParamExists('getReportPrice', 'filterOrganizationId', filterOrganizationId)
-            const localVarPath = `/report/price.csv`;
+            const localVarPath = `/report/price`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
