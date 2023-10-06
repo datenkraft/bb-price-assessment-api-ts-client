@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Backbone Price Assessment API
- *  - alpha: Currently developed API version. Subject to major changes. - beta: A semi-stable early access version. New features can be added. Breaking changes are possible. - stable: The API is recommended for use in production.  [Changelog](https://price-assessment-api.conqore.niceshops.com/v2/docs/changelog.html)  All data is transferred in UTF-8 encoding.\\ The API uses stateless HTTP. No cookies have to be kept.\\ Authentication via OAuth2 client credentials flow.  [Privacy Policy](https://www.niceshops.com/en/dienstleistungen/data-privacy-policy)  [Backbone Price Assessment API PHP client @Packagist](https://packagist.org/packages/datenkraft/bb-price-assessment-api-php-client)
+ *  - alpha: Currently developed API version. Subject to major changes. - beta: A semi-stable early access version. New features can be added. Breaking changes are possible. - stable: The API is recommended for use in production.  [Changelog](https://price-assessment-api.steve.niceshops.com/v2/docs/changelog.html)  All data is transferred in UTF-8 encoding.\\ The API uses stateless HTTP. No cookies have to be kept.\\ Authentication via OAuth2 client credentials flow.  [Privacy Policy](https://www.niceshops.com/en/dienstleistungen/data-privacy-policy)  [Backbone Price Assessment API PHP client @Packagist](https://packagist.org/packages/datenkraft/bb-price-assessment-api-php-client)
  *
  * The version of the OpenAPI document: v2.beta
  * 
@@ -19,7 +19,7 @@ import type { Configuration } from './configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 
-export const BASE_PATH = "https://price-assessment-api.conqore.niceshops.com/v2".replace(/\/+$/, "");
+export const BASE_PATH = "https://price-assessment-api.steve.niceshops.com/v2".replace(/\/+$/, "");
 
 /**
  *
