@@ -127,11 +127,14 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
         /**
          * Query Customer Pricing Profile collection by customer ids
          * @summary Query Customer Pricing Profile collection by customer ids
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {string} [filterCustomerIds] Comma seperated list of customer ids (optional)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomerPricingProfileCollectionEndpoint: async (filterCustomerIds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCustomerPricingProfileCollectionEndpoint: async (page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterCustomerIds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/customer-pricing-profile`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -151,6 +154,18 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
             // authentication bearerAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (paginationMode !== undefined) {
+                localVarQueryParameter['paginationMode'] = paginationMode;
+            }
 
             if (filterCustomerIds !== undefined) {
                 localVarQueryParameter['filter[customerIds]'] = filterCustomerIds;
@@ -294,12 +309,15 @@ export const CustomerPricingProfileApiFp = function(configuration?: Configuratio
         /**
          * Query Customer Pricing Profile collection by customer ids
          * @summary Query Customer Pricing Profile collection by customer ids
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {string} [filterCustomerIds] Comma seperated list of customer ids (optional)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomerPricingProfileCollectionEndpoint(filterCustomerIds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPricingProfileCollection>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomerPricingProfileCollectionEndpoint(filterCustomerIds, options);
+        async getCustomerPricingProfileCollectionEndpoint(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterCustomerIds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerPricingProfileCollection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomerPricingProfileCollectionEndpoint(page, pageSize, paginationMode, filterCustomerIds, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -358,12 +376,15 @@ export const CustomerPricingProfileApiFactory = function (configuration?: Config
         /**
          * Query Customer Pricing Profile collection by customer ids
          * @summary Query Customer Pricing Profile collection by customer ids
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {string} [filterCustomerIds] Comma seperated list of customer ids (optional)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomerPricingProfileCollectionEndpoint(filterCustomerIds?: string, options?: any): AxiosPromise<CustomerPricingProfileCollection> {
-            return localVarFp.getCustomerPricingProfileCollectionEndpoint(filterCustomerIds, options).then((request) => request(axios, basePath));
+        getCustomerPricingProfileCollectionEndpoint(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterCustomerIds?: string, options?: any): AxiosPromise<CustomerPricingProfileCollection> {
+            return localVarFp.getCustomerPricingProfileCollectionEndpoint(page, pageSize, paginationMode, filterCustomerIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
@@ -418,12 +439,15 @@ export interface CustomerPricingProfileApiInterface {
     /**
      * Query Customer Pricing Profile collection by customer ids
      * @summary Query Customer Pricing Profile collection by customer ids
+     * @param {number} [page] The page to read. Default is the first page.
+     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {string} [filterCustomerIds] Comma seperated list of customer ids (optional)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomerPricingProfileApiInterface
      */
-    getCustomerPricingProfileCollectionEndpoint(filterCustomerIds?: string, options?: AxiosRequestConfig): AxiosPromise<CustomerPricingProfileCollection>;
+    getCustomerPricingProfileCollectionEndpoint(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterCustomerIds?: string, options?: AxiosRequestConfig): AxiosPromise<CustomerPricingProfileCollection>;
 
     /**
      * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
@@ -482,13 +506,16 @@ export class CustomerPricingProfileApi extends BaseAPI implements CustomerPricin
     /**
      * Query Customer Pricing Profile collection by customer ids
      * @summary Query Customer Pricing Profile collection by customer ids
+     * @param {number} [page] The page to read. Default is the first page.
+     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {string} [filterCustomerIds] Comma seperated list of customer ids (optional)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomerPricingProfileApi
      */
-    public getCustomerPricingProfileCollectionEndpoint(filterCustomerIds?: string, options?: AxiosRequestConfig) {
-        return CustomerPricingProfileApiFp(this.configuration).getCustomerPricingProfileCollectionEndpoint(filterCustomerIds, options).then((request) => request(this.axios, this.basePath));
+    public getCustomerPricingProfileCollectionEndpoint(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterCustomerIds?: string, options?: AxiosRequestConfig) {
+        return CustomerPricingProfileApiFp(this.configuration).getCustomerPricingProfileCollectionEndpoint(page, pageSize, paginationMode, filterCustomerIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
