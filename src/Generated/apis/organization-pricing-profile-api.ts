@@ -86,10 +86,13 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
          * Query Organization Pricing Profile by by its id
          * @summary Query Organization Pricing Profile by by its id
          * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrganizationPricingProfile: async (organizationPricingProfileId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getOrganizationPricingProfile: async (organizationPricingProfileId: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'organizationPricingProfileId' is not null or undefined
             assertParamExists('getOrganizationPricingProfile', 'organizationPricingProfileId', organizationPricingProfileId)
             const localVarPath = `/organization-pricing-profile/{organizationPricingProfileId}`
@@ -112,6 +115,18 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
             // authentication bearerAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (paginationMode !== undefined) {
+                localVarQueryParameter['paginationMode'] = paginationMode;
+            }
 
 
     
@@ -284,11 +299,14 @@ export const OrganizationPricingProfileApiFp = function(configuration?: Configur
          * Query Organization Pricing Profile by by its id
          * @summary Query Organization Pricing Profile by by its id
          * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrganizationPricingProfile(organizationPricingProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationPricingProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationPricingProfile(organizationPricingProfileId, options);
+        async getOrganizationPricingProfile(organizationPricingProfileId: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationPricingProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrganizationPricingProfile(organizationPricingProfileId, page, pageSize, paginationMode, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -349,11 +367,14 @@ export const OrganizationPricingProfileApiFactory = function (configuration?: Co
          * Query Organization Pricing Profile by by its id
          * @summary Query Organization Pricing Profile by by its id
          * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrganizationPricingProfile(organizationPricingProfileId: string, options?: any): AxiosPromise<OrganizationPricingProfile> {
-            return localVarFp.getOrganizationPricingProfile(organizationPricingProfileId, options).then((request) => request(axios, basePath));
+        getOrganizationPricingProfile(organizationPricingProfileId: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: any): AxiosPromise<OrganizationPricingProfile> {
+            return localVarFp.getOrganizationPricingProfile(organizationPricingProfileId, page, pageSize, paginationMode, options).then((request) => request(axios, basePath));
         },
         /**
          * Query Organization Pricing Profile collection by organization ids
@@ -409,11 +430,14 @@ export interface OrganizationPricingProfileApiInterface {
      * Query Organization Pricing Profile by by its id
      * @summary Query Organization Pricing Profile by by its id
      * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+     * @param {number} [page] The page to read. Default is the first page.
+     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationPricingProfileApiInterface
      */
-    getOrganizationPricingProfile(organizationPricingProfileId: string, options?: AxiosRequestConfig): AxiosPromise<OrganizationPricingProfile>;
+    getOrganizationPricingProfile(organizationPricingProfileId: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: AxiosRequestConfig): AxiosPromise<OrganizationPricingProfile>;
 
     /**
      * Query Organization Pricing Profile collection by organization ids
@@ -471,12 +495,15 @@ export class OrganizationPricingProfileApi extends BaseAPI implements Organizati
      * Query Organization Pricing Profile by by its id
      * @summary Query Organization Pricing Profile by by its id
      * @param {string} organizationPricingProfileId Organization Pricing Profile Id
+     * @param {number} [page] The page to read. Default is the first page.
+     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationPricingProfileApi
      */
-    public getOrganizationPricingProfile(organizationPricingProfileId: string, options?: AxiosRequestConfig) {
-        return OrganizationPricingProfileApiFp(this.configuration).getOrganizationPricingProfile(organizationPricingProfileId, options).then((request) => request(this.axios, this.basePath));
+    public getOrganizationPricingProfile(organizationPricingProfileId: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: AxiosRequestConfig) {
+        return OrganizationPricingProfileApiFp(this.configuration).getOrganizationPricingProfile(organizationPricingProfileId, page, pageSize, paginationMode, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

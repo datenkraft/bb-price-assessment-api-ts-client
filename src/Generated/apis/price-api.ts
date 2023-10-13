@@ -39,11 +39,14 @@ export const PriceApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Get Price
          * @param {string} filterCustomerId Customer Id filter
          * @param {string} filterSkuCode SKU Code filter
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {string} [filterValidFrom] Valid From Date filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPriceCollection: async (filterCustomerId: string, filterSkuCode: string, filterValidFrom?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPriceCollection: async (filterCustomerId: string, filterSkuCode: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterValidFrom?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'filterCustomerId' is not null or undefined
             assertParamExists('getPriceCollection', 'filterCustomerId', filterCustomerId)
             // verify required parameter 'filterSkuCode' is not null or undefined
@@ -67,6 +70,18 @@ export const PriceApiAxiosParamCreator = function (configuration?: Configuration
             // authentication bearerAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['pageSize'] = pageSize;
+            }
+
+            if (paginationMode !== undefined) {
+                localVarQueryParameter['paginationMode'] = paginationMode;
+            }
 
             if (filterCustomerId !== undefined) {
                 localVarQueryParameter['filter[customerId]'] = filterCustomerId;
@@ -160,12 +175,15 @@ export const PriceApiFp = function(configuration?: Configuration) {
          * @summary Get Price
          * @param {string} filterCustomerId Customer Id filter
          * @param {string} filterSkuCode SKU Code filter
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {string} [filterValidFrom] Valid From Date filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPriceCollection(filterCustomerId: string, filterSkuCode: string, filterValidFrom?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PriceCollection>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPriceCollection(filterCustomerId, filterSkuCode, filterValidFrom, options);
+        async getPriceCollection(filterCustomerId: string, filterSkuCode: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterValidFrom?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PriceCollection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPriceCollection(filterCustomerId, filterSkuCode, page, pageSize, paginationMode, filterValidFrom, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -195,12 +213,15 @@ export const PriceApiFactory = function (configuration?: Configuration, basePath
          * @summary Get Price
          * @param {string} filterCustomerId Customer Id filter
          * @param {string} filterSkuCode SKU Code filter
+         * @param {number} [page] The page to read. Default is the first page.
+         * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+         * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
          * @param {string} [filterValidFrom] Valid From Date filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPriceCollection(filterCustomerId: string, filterSkuCode: string, filterValidFrom?: string, options?: any): AxiosPromise<PriceCollection> {
-            return localVarFp.getPriceCollection(filterCustomerId, filterSkuCode, filterValidFrom, options).then((request) => request(axios, basePath));
+        getPriceCollection(filterCustomerId: string, filterSkuCode: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterValidFrom?: string, options?: any): AxiosPromise<PriceCollection> {
+            return localVarFp.getPriceCollection(filterCustomerId, filterSkuCode, page, pageSize, paginationMode, filterValidFrom, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Price Table for an Organization. The prices are sorted by: skuGroup:name, sku:name, validFrom, steppedPrices:validFromQuantity.
@@ -227,12 +248,15 @@ export interface PriceApiInterface {
      * @summary Get Price
      * @param {string} filterCustomerId Customer Id filter
      * @param {string} filterSkuCode SKU Code filter
+     * @param {number} [page] The page to read. Default is the first page.
+     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {string} [filterValidFrom] Valid From Date filter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PriceApiInterface
      */
-    getPriceCollection(filterCustomerId: string, filterSkuCode: string, filterValidFrom?: string, options?: AxiosRequestConfig): AxiosPromise<PriceCollection>;
+    getPriceCollection(filterCustomerId: string, filterSkuCode: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterValidFrom?: string, options?: AxiosRequestConfig): AxiosPromise<PriceCollection>;
 
     /**
      * Get Price Table for an Organization. The prices are sorted by: skuGroup:name, sku:name, validFrom, steppedPrices:validFromQuantity.
@@ -259,13 +283,16 @@ export class PriceApi extends BaseAPI implements PriceApiInterface {
      * @summary Get Price
      * @param {string} filterCustomerId Customer Id filter
      * @param {string} filterSkuCode SKU Code filter
+     * @param {number} [page] The page to read. Default is the first page.
+     * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
+     * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
      * @param {string} [filterValidFrom] Valid From Date filter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PriceApi
      */
-    public getPriceCollection(filterCustomerId: string, filterSkuCode: string, filterValidFrom?: string, options?: AxiosRequestConfig) {
-        return PriceApiFp(this.configuration).getPriceCollection(filterCustomerId, filterSkuCode, filterValidFrom, options).then((request) => request(this.axios, this.basePath));
+    public getPriceCollection(filterCustomerId: string, filterSkuCode: string, page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterValidFrom?: string, options?: AxiosRequestConfig) {
+        return PriceApiFp(this.configuration).getPriceCollection(filterCustomerId, filterSkuCode, page, pageSize, paginationMode, filterValidFrom, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
