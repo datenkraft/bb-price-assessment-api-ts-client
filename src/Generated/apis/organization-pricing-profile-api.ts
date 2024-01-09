@@ -183,7 +183,7 @@ export const OrganizationPricingProfileApiAxiosParamCreator = function (configur
             };
         },
         /**
-         * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * Update one or more fields of a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
          * @summary Update a Organization Pricing Profile
          * @param {string} organizationPricingProfileId Organization Pricing Profile Id
          * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
@@ -321,7 +321,7 @@ export const OrganizationPricingProfileApiFp = function(configuration?: Configur
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * Update one or more fields of a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
          * @summary Update a Organization Pricing Profile
          * @param {string} organizationPricingProfileId Organization Pricing Profile Id
          * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
@@ -387,7 +387,7 @@ export const OrganizationPricingProfileApiFactory = function (configuration?: Co
             return localVarFp.getOrganizationPricingProfileCollection(filterOrganizationIds, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * Update one or more fields of a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
          * @summary Update a Organization Pricing Profile
          * @param {string} organizationPricingProfileId Organization Pricing Profile Id
          * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
@@ -450,7 +450,7 @@ export interface OrganizationPricingProfileApiInterface {
     getOrganizationPricingProfileCollection(filterOrganizationIds?: string, options?: AxiosRequestConfig): AxiosPromise<OrganizationPricingProfileCollection>;
 
     /**
-     * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * Update one or more fields of a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
      * @summary Update a Organization Pricing Profile
      * @param {string} organizationPricingProfileId Organization Pricing Profile Id
      * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 
@@ -519,7 +519,7 @@ export class OrganizationPricingProfileApi extends BaseAPI implements Organizati
     }
 
     /**
-     * Update one or more fields of a Organization Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * Update one or more fields of a Organization Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
      * @summary Update a Organization Pricing Profile
      * @param {string} organizationPricingProfileId Organization Pricing Profile Id
      * @param {PatchOrganizationPricingProfile} patchOrganizationPricingProfile 

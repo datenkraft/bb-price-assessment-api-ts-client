@@ -183,7 +183,7 @@ export const CustomerPricingProfileApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * Update one or more fields of a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
          * @summary Update a Customer Pricing Profile
          * @param {string} customerPricingProfileId Customer Pricing Profile Id
          * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
@@ -321,7 +321,7 @@ export const CustomerPricingProfileApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * Update one or more fields of a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
          * @summary Update a Customer Pricing Profile
          * @param {string} customerPricingProfileId Customer Pricing Profile Id
          * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
@@ -387,7 +387,7 @@ export const CustomerPricingProfileApiFactory = function (configuration?: Config
             return localVarFp.getCustomerPricingProfileCollectionEndpoint(page, pageSize, paginationMode, filterCustomerIds, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+         * Update one or more fields of a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
          * @summary Update a Customer Pricing Profile
          * @param {string} customerPricingProfileId Customer Pricing Profile Id
          * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
@@ -450,7 +450,7 @@ export interface CustomerPricingProfileApiInterface {
     getCustomerPricingProfileCollectionEndpoint(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterCustomerIds?: string, options?: AxiosRequestConfig): AxiosPromise<CustomerPricingProfileCollection>;
 
     /**
-     * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * Update one or more fields of a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
      * @summary Update a Customer Pricing Profile
      * @param {string} customerPricingProfileId Customer Pricing Profile Id
      * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
@@ -519,7 +519,7 @@ export class CustomerPricingProfileApi extends BaseAPI implements CustomerPricin
     }
 
     /**
-     * Update one or more fields of a Customer Pricing Profile.\\ Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
+     * Update one or more fields of a Customer Pricing Profile. Please note, that existing stepped prices are replaced by the value you send via the request body, not supplemented.
      * @summary Update a Customer Pricing Profile
      * @param {string} customerPricingProfileId Customer Pricing Profile Id
      * @param {PatchCustomerPricingProfile} patchCustomerPricingProfile 
