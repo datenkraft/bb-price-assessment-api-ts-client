@@ -3,12 +3,11 @@ import { Configuration } from "./Generated";
 
 export namespace PriceAssessmentApiClient {
   export async function getApiConfig(
-    configOption: ConfigOptions,
-    endpointUrl: string | null = null
+      configOption: ConfigOptions,
+      endpointUrl: string | null = null
   ) {
     return new Configuration({
-      basePath:
-        endpointUrl ?? process.env.X_DATENKRAFT_PRICE_ASSESSMENT_API_URL ?? "",
+      basePath: endpointUrl ?? process.env.X_DATENKRAFT_PRICE_ASSESSMENT_API_URL ?? "",
       accessToken: await new Auth(new Config(configOption)).getAccessToken(),
     });
   }

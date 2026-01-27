@@ -7,32 +7,31 @@ describe("Client Test (staging)", () => {
     const configOptions: ConfigOptions = {
       clientId: process.env.DEV_CLIENT_ID ?? "",
       clientSecret: process.env.DEV_CLIENT_SECRET_STAGING ?? "",
-      oAuthTokenHost:
-        "https://authentication-api.staging.backbone.datenkraft.info",
+      oAuthTokenHost: "https://authentication-api.sandbox.steve.niceshops.com",
     };
 
     PriceAssessmentApiClient.getApiConfig(
-      configOptions,
-      "https://price-assessment-api.staging.backbone.datenkraft.info/v2"
+        configOptions,
+        "https://price-assessment-api.sandbox.steve.niceshops.com/v2"
     )
-      .then((config) => {
-        const authRoleApi = new AuthRoleApi(config);
+    .then((config) => {
+      const authRoleApi = new AuthRoleApi(config);
 
-        authRoleApi
-          .getAuthRoleCollection()
-          .then(({ data: response }) => {
-            if (response.data instanceof Array) {
-              expect(response.data).toContainEqual({
-                roleCode: "bb-price-assessment-api/auth_access-management",
-                name: "Role for access management",
-              });
-              done();
-            } else {
-              done("Auth Role Collection not found");
-            }
-          })
-          .catch((error) => done(error));
+      authRoleApi
+      .getAuthRoleCollection()
+      .then(({ data: response }) => {
+        if (response.data instanceof Array) {
+          expect(response.data).toContainEqual({
+            roleCode: "bb-price-assessment-api/auth_access-management",
+            name: "Role for access management",
+          });
+          done();
+        } else {
+          done("Auth Role Collection not found");
+        }
       })
       .catch((error) => done(error));
+    })
+    .catch((error) => done(error));
   });
 });
